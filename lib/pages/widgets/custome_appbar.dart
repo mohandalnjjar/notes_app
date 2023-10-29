@@ -13,7 +13,7 @@ class CustomeAppBar extends StatelessWidget {
           style: TextStyle(fontSize: 30),
         ),
         SizedBox(
-          width: 247,
+          width: 240 ,
         ),
         CustomeSearchIcon(),
       ],
