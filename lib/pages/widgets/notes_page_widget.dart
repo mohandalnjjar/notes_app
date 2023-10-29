@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/pages/widgets/Custome_NoteCard.dart';
 import 'package:notes_app/pages/widgets/custome_appbar.dart';
+import 'package:notes_app/pages/widgets/notes_list_view.dart';
 
 class NotesPageBody extends StatelessWidget {
   const NotesPageBody({super.key});
@@ -16,26 +16,12 @@ class NotesPageBody extends StatelessWidget {
               height: 35,
             ),
             CustomeAppBar(),
-            Expanded(child: CustomeNotesItem()),
+            Expanded(
+              child: CustomeNotesItem(),
+            ),
           ],
         ),
       ),
     );
-  }
-}
-
-class CustomeNotesItem extends StatelessWidget {
-  const CustomeNotesItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            child: const NoteItem(),
-          );
-        });
   }
 }
