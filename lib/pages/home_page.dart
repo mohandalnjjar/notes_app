@@ -17,7 +17,7 @@ class HomePage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
               ),
               context: context,
-              builder: (context) { 
+              builder: (context) {
                 return AddNoteButtomSheet();
               });
         },
