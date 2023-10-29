@@ -11,11 +11,15 @@ class NotesPageBody extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 9),
         child: Column(
-          children: [
+          children: const [
             SizedBox(
               height: 35,
             ),
-            CustomeAppBar(),
+            CustomeAppBar(
+              icon: Icons.search,
+              title: 'Notes',
+              SpaceBetwen: 240,
+            ),
             Expanded(
               child: CustomeNotesItem(),
             ),
