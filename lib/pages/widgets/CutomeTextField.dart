@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/pages/widgets/constance.dart';
 
 class CutomeTextField extends StatelessWidget {
-  CutomeTextField({super.key, required this.hintText, this.MaxLines = 1});
+ const CutomeTextField({super.key, required this.hintText, this.MaxLines = 1});
   final String hintText;
   final int MaxLines;
 
