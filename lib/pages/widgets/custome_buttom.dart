@@ -8,7 +8,7 @@ class CutomeButtom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: KprimaryColor, borderRadius: BorderRadius.circular(14)),
+          color: kprimaryColor, borderRadius: BorderRadius.circular(14)),
       height: 50,
       width: MediaQuery.of(context).size.width,
       child: Center(

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:notes_app/pages/widgets/constance.dart';
 
 class CutomeTextField extends StatelessWidget {
- const CutomeTextField({super.key, required this.hintText, this.MaxLines = 1});
+  const CutomeTextField({super.key, required this.hintText, this.MaxLines = 1});
   final String hintText;
   final int MaxLines;
 
@@ -10,13 +10,13 @@ class CutomeTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextField(
       maxLines: MaxLines,
-      cursorColor: KprimaryColor,
+      cursorColor: kprimaryColor,
       decoration: InputDecoration(
         hintText: hintText,
         // hintStyle: TextStyle(color: KprimaryColor),
         border: buildBorder(color: Colors.white),
-        enabledBorder: buildBorder(color: KprimaryColor),
-        focusedBorder: buildBorder(color: KprimaryColor),
+        enabledBorder: buildBorder(color: kprimaryColor),
+        focusedBorder: buildBorder(color: kprimaryColor),
       ),
     );
   }
