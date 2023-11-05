@@ -10,7 +10,7 @@ import 'package:notes_app/pages/widgets/constance.dart';
 
 void main(List<String> args) async {
   await Hive.initFlutter();
-  await Hive.openBox(kNotesBox);
+  await Hive.openBox<NoteModel>(kNotesBox);
   Bloc.observer = SimpleObserver();
   Hive.registerAdapter(NoteModelAdapter());
   runApp(
