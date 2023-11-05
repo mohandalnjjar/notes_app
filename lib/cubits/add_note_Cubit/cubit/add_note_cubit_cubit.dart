@@ -6,8 +6,8 @@ import 'package:notes_app/pages/widgets/constance.dart';
 
 part 'add_note_cubit_state.dart';
 
-class AddNoteCubitCubit extends Cubit<AddNoteCubitState> {
-  AddNoteCubitCubit() : super(AddNoteCubitInitial());
+class AddNoteCubit extends Cubit<AddNoteCubitState> {
+  AddNoteCubit() : super(AddNoteCubitInitial());
   addnote(NoteModel note) async {
     emit(
       AddNoteLoading(),
@@ -20,7 +20,9 @@ class AddNoteCubitCubit extends Cubit<AddNoteCubitState> {
       );
     } catch (e) {
       emit(
-        AddNoteFaliur(e.toString(),),
+        AddNoteFaliur(
+          e.toString(),
+        ),
       );
     }
   }
