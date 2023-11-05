@@ -9,4 +9,8 @@ final class AddNoteLoading extends AddNoteCubitState {}
 
 final class AddNoteSuccess extends AddNoteCubitState {}
 
-final class AddNoteFaliur extends AddNoteCubitState {}
+final class AddNoteFaliur extends AddNoteCubitState {
+ final String error;
+
+  AddNoteFaliur(this.error);
+}
