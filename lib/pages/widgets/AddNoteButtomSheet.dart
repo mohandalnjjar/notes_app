@@ -8,29 +8,32 @@ class AddNoteButtomSheet extends StatelessWidget {
   const AddNoteButtomSheet({super.key});
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      child: BlocConsumer<AddNoteCubit, AddNoteCubitState>(
-        listener: (context, state) {
-          if (state is AddNoteFaliur) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text('${state.error}'),
+    return BlocProvider(
+      create: (context) => AddNoteCubit(),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        child: BlocConsumer<AddNoteCubit, AddNoteCubitState>(
+          listener: (context, state) {
+            if (state is AddNoteFaliur) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('${state.error}'),
+                ),
+              );
+            }
+            if (state is AddNoteSuccess) {
+              return Navigator.pop(context);
+            }
+          },
+          builder: (context, state) {
+            return ModalProgressHUD(
+              inAsyncCall: state is AddNoteLoading ? true : false,
+              child: SingleChildScrollView(
+                child: const AddNoteForm(),
               ),
             );
-          }
-          if (state is AddNoteSuccess) {
-            return Navigator.pop(context);
-          }
-        },
-        builder: (context, state) {
-          return ModalProgressHUD(
-            inAsyncCall: state is AddNoteLoading ? true : false,
-            child: SingleChildScrollView(
-              child: const AddNoteForm(),
-            ),
-          );
-        },
+          },
+        ),
       ),
     );
   }
