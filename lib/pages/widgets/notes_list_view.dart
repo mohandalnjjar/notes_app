@@ -7,7 +7,7 @@ class CustomeNotesItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-        itemCount: 10,  
+        itemCount: 10,
         itemBuilder: (context, index) {
           return const Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
