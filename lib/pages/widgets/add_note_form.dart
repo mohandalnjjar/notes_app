@@ -50,7 +50,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
           const SizedBox(
             height: 15,
           ),
-          const ColorsListView(),
+           ColorsListView(),
           const SizedBox(
             height: 15,
           ),
@@ -86,18 +86,6 @@ class _AddNoteFormState extends State<AddNoteForm> {
           ),
         ],
       ),
-    );
-  }
-}
-
-class ColorItem extends StatelessWidget {
-  const ColorItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const CircleAvatar(
-      radius: 27,
-      backgroundColor: Colors.black,
     );
   }
 }

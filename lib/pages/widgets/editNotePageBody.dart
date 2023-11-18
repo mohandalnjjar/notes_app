@@ -4,6 +4,7 @@ import 'package:notes_app/cubits/notes_cubit/cubit/notes_cubit_cubit.dart';
 import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/pages/widgets/CutomeTextField.dart';
 import 'package:notes_app/pages/widgets/custome_appbar.dart';
+import 'editColorPageListView.dart';
 
 class EditNotePageBody extends StatefulWidget {
   const EditNotePageBody({super.key, required this.note});
@@ -20,42 +21,49 @@ class _EditNotePageBodyState extends State<EditNotePageBody> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 9),
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 35,
-          ),
-          CustomeAppBar(
-            onpressed: () {
-              widget.note.title = title ?? widget.note.title;
-              widget.note.subtitle = content ?? widget.note.subtitle;
-              widget.note.save();
-              BlocProvider.of<NotesCubitCubit>(context).fetchAllNotes();
-              Navigator.pop(context);
-            },
-            SpaceBetwen: 190,
-            title: 'Edit Note',
-            icon: Icons.check,
-          ),
-          const SizedBox(
-            height: 40,
-          ),
-          CutomeTextField(
-              onchange: (value) {
-                title = value;
+      child: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            const SizedBox(
+              height: 35,
+            ),
+            CustomeAppBar(
+              onpressed: () async {
+                widget.note.title = title ?? widget.note.title;
+                widget.note.subtitle = content ?? widget.note.subtitle;
+                await widget.note.save();
+                BlocProvider.of<NotesCubitCubit>(context).fetchAllNotes();
+                Navigator.pop(context);
               },
-              hintText: widget.note.title),
-          const SizedBox(
-            height: 30,
-          ),
-          CutomeTextField(
-            onchange: (value) {
-              content = value;
-            },
-            hintText: widget.note.subtitle,
-            MaxLines: 9,
-          ),
-        ],
+              SpaceBetwen: 190,
+              title: 'Edit Note',
+              icon: Icons.check,
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            CutomeTextField(
+                onchange: (value) {
+                  title = value;
+                },
+                hintText: widget.note.title),
+            const SizedBox(
+              height: 30,
+            ),
+            CutomeTextField(
+              onchange: (value) {
+                content = value;
+              },
+              hintText: widget.note.subtitle,
+              MaxLines: 9,
+            ),
+            const SizedBox(
+              height: 30,
+            ),
+            EditNoteColorsList(note: widget.note)
+          ],
+        ),
       ),
     );
   }

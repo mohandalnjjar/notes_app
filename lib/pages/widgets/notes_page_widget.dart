@@ -31,7 +31,7 @@ class _NotesPageBodyState extends State<NotesPageBody> {
             CustomeAppBar(
               icon: Icons.search,
               title: 'Notes',
-              SpaceBetwen: 240,
+              SpaceBetwen: 230,
             ),
             Expanded(
               child: NoteslistView(),
